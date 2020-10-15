@@ -1,54 +1,75 @@
+
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-grey-dark: #777;
+$color-white: #fff;
+
 /*Global reset*/
 /*All the root pseudo-element will have same properties*/
 *,
 *::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit; }
+*::after{
+  margin : 0;
+  padding : 0;
+  box-sizing: inherit;
+}
 
 /*62.95 results in 10px if user default font size is 16. will be used to calculate rem across the page*/
 /*this is good practice as it will just give user a zoom in or out effect if they change browser font-size (out of dev's control)*/
 /*NOTE: rem is not supported in IE9*/
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+}
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.7;
-  color: #777;
+  color: $color-grey-dark;
   padding: 3rem;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-image: linear-gradient(
+          to right bottom,
+          rgba($color-primary-light, 0.8),
+          rgba($color-primary-dark,0.8)) ,
+  url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 74vh, 0 100%);
-  position: relative; }
+  clip-path: polygon(0 0, 100% 0 , 100% 74vh, 0 100%);
+  position: relative;
+}
 
 .header__logo-box {
   position: absolute;
   top: 4rem;
-  left: 4rem; }
+  left : 4rem;
+}
 
 .header__logo {
-  height: 3.5rem; }
+  height: 3.5rem;
+}
 
 .header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center; }
+  text-align: center;
+}
 
 .header-primary {
-  color: #fff;
+  color: $color-white;
   text-transform: uppercase;
-  backface-visibility: hidden; }
+
+  backface-visibility: hidden;
+}
 
 .header-primary--main {
   display: block;
@@ -57,7 +78,8 @@ body {
   letter-spacing: 3.5rem;
   animation: moveInLeft 1s ease-out;
   /*animation-duration: 1s;*/
-  /*animation-timing-function: ease-in;*/ }
+  /*animation-timing-function: ease-in;*/
+}
 
 .header-primary--sub {
   display: block;
@@ -67,37 +89,56 @@ body {
   animation: moveInRight 1.2s ease-out;
   /*animation-duration: 1s;*/
   /*animation-timing-function: ease-in;*/
-  margin-bottom: 6rem; }
+  margin-bottom: 6rem;
+}
 
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-10rem); }
+    transform: translateX(-10rem);
+  }
+
   80% {
-    transform: translateX(1rem); }
+    transform: translateX(1rem);
+  }
+
   100% {
     opacity: 1;
-    transform: translateX(0); } }
+    transform: translateX(0);
+  }
+}
 
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(10rem); }
+    transform: translateX(10rem);
+  }
+
   80% {
-    transform: translateX(-3rem); }
+    transform: translateX(-3rem);
+  }
+
   100% {
     opacity: 1;
-    transform: translateX(0); } }
+    transform: translateX(0);
+  }
+}
 
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(3rem); }
+    transform: translateY(3rem);
+  }
+
   80% {
-    transform: translateY(-1rem); }
+    transform: translateY(-1rem);
+  }
+
   100% {
     opacity: 1;
-    transform: translateY(0); } }
+    transform: translateY(0);
+  }
+}
 
 .btn:link,
 .btn:visited {
@@ -108,15 +149,18 @@ body {
   border-radius: 10rem;
   /*transition helps to give a smoother feel. must declared be on intial state*/
   transition: all .2s;
-  position: relative; }
+  position: relative;
+}
 
 /*gives user an experience as if the btn is floating*/
 .btn:hover {
-  transform: translateY(-0.3rem);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  transform: translateY(-.3rem);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0, .2);
+}
 
 .btn:active {
-  transform: translateY(-1px); }
+  transform: translateY(-1px);
+}
 
 .btn::after {
   content: "";
@@ -128,19 +172,24 @@ body {
   top: 0;
   left: 0;
   z-index: -1;
-  transition: all .4s; }
+  transition: all .4s;
+}
 
 .btn--white::after {
-  background-color: white; }
+  background-color: white;
+}
 
 .btn--white {
-  background-color: #fff;
-  color: #777; }
+  background-color: $color-white;
+  color: $color-grey-dark;
+}
 
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
+  opacity: 0;
+}
 
 .btn--animated {
   animation: moveInBottom .5s ease-out .75s;
-  animation-fill-mode: backwards; }
+  animation-fill-mode: backwards;
+}
