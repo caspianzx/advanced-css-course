@@ -1,0 +1,26 @@
+/*Global reset*/
+/*All the root pseudo-element will have same properties*/
+*,
+*::before,
+*::after{
+  margin : 0;
+  padding : 0;
+  box-sizing: inherit;
+}
+
+/*62.95 results in 10px for 1 rem if user default font size is 16. will be used to calculate rem across the page*/
+/*this is good practice as it will just give user a zoom in or out effect if they change browser font-size (out of dev's control)*/
+/*NOTE: rem is not supported in IE9*/
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: $color-grey-dark;
+  padding: 3rem;
+  box-sizing: border-box;
+}
