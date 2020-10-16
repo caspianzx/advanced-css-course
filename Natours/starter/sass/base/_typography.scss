@@ -26,3 +26,23 @@
     margin-bottom: 6rem;
   }
 }
+
+// this gives header a gradient and modern feel
+.header-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+  display: inline-block;
+  // background color gets clip exactly where the text is.
+  -webkit-background-clip: text;
+  // text is will transparent and the background clip will show
+  color: transparent;
+  letter-spacing: .2rem;
+  transition: all .2s;
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgba($color-black, .2 );
+  }
+}
