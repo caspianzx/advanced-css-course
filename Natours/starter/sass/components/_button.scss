@@ -1,5 +1,6 @@
 //Encapsulate css with nesting to be maintainable.
 .btn {
+  &,
   &:link, &:visited {
     text-transform: uppercase;
     text-decoration: none;
@@ -9,6 +10,10 @@
     /*transition helps to give a smoother feel. must declared be on intial state*/
     transition: all .2s;
     position: relative;
+
+    //for btn element
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
@@ -21,8 +26,9 @@
     }
   }
 
-  &:active {
+  &:active, &:focus {
     transform: translateY(-1px);
+    outline: none;
   }
 
   &::after {
