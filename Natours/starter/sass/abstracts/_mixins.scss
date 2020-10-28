@@ -12,3 +12,39 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+// MEDIA QUERY MANAGER
+
+/*
+$breakpoint arg choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+ */
+
+// 1em = 16px default if it is not changed by user
+//important! rem and em is always coming from the browser setting. it is not affected by our custom font-size
+// user changes default font-size then it is not affected by the font-size that we set
+
+// Learning pt
+// pixel-based media query e.g @media all and (min-width:656px) still evaluates to true with the zoomed-in text and therefore creates awkwardly-wrapped nav elements.
+//However, the em-based media query of @media all and (min-width: 41em) scales to the larger text size. Zoomed in like this, the browser no longer satisfies that query: we have fewer than 41ems to work with.
+// Basically em based query is more accessible and logical to use
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.3em) { @content}; //600px
+  }
+
+  @if $breakpoint == tab-port{
+    @media (max-width: 56.25rem) { @content }; //900px
+  }
+
+  @if $breakpoint == tab-land {
+    @media (max-width: 75rem) { @content }; //1200px
+  }
+
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) { @content }; //1800px
+  }
+}
