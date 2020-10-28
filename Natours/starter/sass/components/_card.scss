@@ -146,7 +146,9 @@
   }
 
   // implementing entire css re-write is faster as there are major changes
-  @include respond(tab-port) {
+  @media only screen and  (max-width: 56.25rem),
+  // display this when screen does not have hover e.g. tablet
+        only screen and (hover:none){
     height: auto;
     border-radius: 3px;
     background-color: white;
