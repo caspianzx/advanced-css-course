@@ -15,11 +15,15 @@
   // optimize for lower screen res (e.g phone), and screen with low device pixel ratio
   // dpi- dot per inch
   // comma represents or
-  @media(min-resolution: 192dpi) and (min-width: 600px), (min-width: 125rem) {
+  @media(min-resolution: 192dpi) and (min-width: 600px),
+        // safari does not support dpi
+        (-webkit-device-pixel-ratio: 2) and (min-width: 600px),
+        (min-width: 125rem)
+  {
     background-image: linear-gradient(
             to right bottom,
-            rgba($color-primary-light, 0.8),
-            rgba($color-primary-dark,0.8)) ,
+            rgba($color-secondary-light, 0.8),
+            rgba($color-secondary-dark,0.8)) ,
     url(../../img/hero.jpg);
   }
 
